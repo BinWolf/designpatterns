@@ -5,6 +5,7 @@ package com.wolf.designpatterns.singleton;
  * 测试单例模式
  */
 public class Client {
+
     public static void main(String[] args) {
         for (int i = 0; i < 5; i++) {
             Singleton singleton = Singleton.newInstance();

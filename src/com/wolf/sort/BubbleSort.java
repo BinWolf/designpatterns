@@ -21,11 +21,6 @@ public class BubbleSort {
                     arr[j+1] = temp;
                 }
             }
-
-            for (int k = 0; k <arr.length ; k++) {
-                System.out.print(arr[k] + ", ");
-            }
-            System.out.println(i);
         }
     }
 

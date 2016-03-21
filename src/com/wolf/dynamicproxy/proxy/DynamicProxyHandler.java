@@ -6,6 +6,8 @@ import java.lang.reflect.Proxy;
 
 /**
  * Created by wolf on 15/12/15.
+ *
+ * 本dome使用jdk的动态代理,需要有接口才能完成.
  */
 public class DynamicProxyHandler implements InvocationHandler {
 

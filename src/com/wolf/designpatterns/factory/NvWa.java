@@ -1,11 +1,13 @@
 package com.wolf.designpatterns.factory;
 
+import java.io.IOException;
+
 /**
  * Created by wolf on 16/5/8.
  */
 public class NvWa {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         System.out.println("------------白人----------------");
         IHuman whiteHuman = HumanFactory.createHuman(WhiteHuman.class);
         whiteHuman.laugh();

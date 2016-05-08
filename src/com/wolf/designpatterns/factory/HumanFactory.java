@@ -33,7 +33,7 @@ public class HumanFactory {
         Random random = new Random();
         int rand = random.nextInt(concreteHumanList.size());
 
-        human = createHuman(concreteHumanList.get(rand));
+//        human = createHuman(concreteHumanList.get(rand));
         return human;
     }
 }

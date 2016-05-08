@@ -21,7 +21,7 @@ public class ClassUtils {
             try {
                 List<Class> allClass = getClasses(packageName);
                 for (int i = 0; i < allClass.size(); i++) {
-                    if (c.isAssignableFrom(allClass.get(i))) {  //判断是否是一个接口
+                    if (c.isAssignableFrom(allClass.get(i))) {  //判断是否是同一个接口(继承或者实现)
                         if (!c.equals(allClass.get(i))) {   //本身不加进去
                             returnClassList.add(allClass.get(i));
                         }
@@ -36,13 +36,13 @@ public class ClassUtils {
 
     private static List<Class> getClasses(String packageName) throws ClassNotFoundException,IOException {
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-        String path = packageName.replace('.', '/');
+        String path = packageName.replace('.', '/');    //转换成系统默认的路径分隔符
         Enumeration<URL> resources = classLoader.getResources(path);
         List<File> dirs = new ArrayList<File>();
 
         while (resources.hasMoreElements()) {
-            URL resoutce = resources.nextElement();
-            dirs.add(new File(resoutce.getFile()));
+            URL resource = resources.nextElement();
+            dirs.add(new File(resource.getFile()));
         }
 
         ArrayList<Class> classes = new ArrayList<Class>();
@@ -62,7 +62,7 @@ public class ClassUtils {
         for (File file : files) {
             if (file.isDirectory()) {
                 assert !file.getName().contains(".");
-                classes.addAll(findClasses(file, packageName + "." + file.getName()));
+                classes.addAll(findClasses(file, packageName + "." + file.getName())); //如果是目录继续查找该目录下的文件
             }else if (file.getName().endsWith(".class")) {
                 classes.add(Class.forName(packageName + '.' + file.getName().substring(0, file.getName().length() - 6)));
             }

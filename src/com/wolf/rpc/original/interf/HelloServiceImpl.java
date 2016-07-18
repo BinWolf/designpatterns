@@ -1,4 +1,4 @@
-package com.wolf.rpc.interf;
+package com.wolf.rpc.original.interf;
 
 /**
  * Created by wolf on 16/3/24.

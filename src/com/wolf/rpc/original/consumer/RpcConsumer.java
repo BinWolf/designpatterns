@@ -1,7 +1,7 @@
-package com.wolf.rpc.consumer;
+package com.wolf.rpc.original.consumer;
 
-import com.wolf.rpc.framework.RpcFramework;
-import com.wolf.rpc.interf.IHelloService;
+import com.wolf.rpc.original.framework.RpcFramework;
+import com.wolf.rpc.original.interf.IHelloService;
 
 /**
  * Created by wolf on 16/3/24.

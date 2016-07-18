@@ -1,7 +1,7 @@
-package com.wolf.rpc.framework;
+package com.wolf.rpc.original.framework;
 
-import com.wolf.rpc.interf.HelloServiceImpl;
-import com.wolf.rpc.interf.IHelloService;
+import com.wolf.rpc.original.interf.HelloServiceImpl;
+import com.wolf.rpc.original.interf.IHelloService;
 
 /**
  * Created by wolf on 16/3/24.

@@ -1,4 +1,4 @@
-package com.wolf.rpc.framework;
+package com.wolf.rpc.original.framework;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -61,6 +61,15 @@ public class RpcFramework {
         }
     }
 
+    /**
+     *
+     * @param interfaceClass
+     * @param host
+     * @param port
+     * @param <T>
+     * @return
+     * @throws Exception
+     */
     public static <T> T refer(final Class<T> interfaceClass, final String host, final int port) throws Exception{
         if(interfaceClass == null)
             throw new IllegalAccessException("Interface class == null");
@@ -73,7 +82,9 @@ public class RpcFramework {
         }
         System.out.println("call remote service " + interfaceClass.getName() + "from server" + host + ":" + port);
 
-        return (T) Proxy.newProxyInstance(interfaceClass.getClassLoader(), new Class<?>[]{interfaceClass}, new InvocationHandler() {
+        return (T) Proxy.newProxyInstance(  interfaceClass.getClassLoader(),
+                                            new Class<?>[]{interfaceClass},
+                                            new InvocationHandler() {
             @Override
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
                 Socket socket = new Socket(host, port);
